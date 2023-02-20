@@ -4,14 +4,46 @@ import Router from 'next/router'
 import { Transition } from '@headlessui/react'
 import useClickAway from 'components/util/useClickAway'
 import DarkModeToggle from 'components/widgets/DarkModeToggle'
+import { useDarkMode } from 'components/util/useDarkMode'
 
 const links = [
   { href: "/about", title: "About" },
 ]
 
-const Header = ({dark}) => {
+const darkIcon = (
+  <svg viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" className="">
+    <rect fill="#1F2937" width="64px" height="64px" x="0" y="0"></rect>
+    <g transform="matrix(0.5,0,0,0.5,0,0)">
+      <g transform="matrix(1,0,0,1,0,0)">
+        <circle cx="64" cy="64" r="64" fill="white" stroke="#1F2937" strokeWidth="1px" strokeLinecap="square" vectorEffect="non-scaling-stroke"></circle>
+        <path d="M128 128L0 0" stroke="#1F2937" strokeLinecap="square" fill="none" strokeWidth="1px" vectorEffect="non-scaling-stroke"></path>
+        <path d="M30.0589 30.0589C48.804 11.3137 79.196 11.3137 97.9411 30.0589C116.686 48.804 116.686 79.196 97.9411 97.9411" stroke="#1F2937" fill="none" strokeWidth="1px" strokeLinecap="square" vectorEffect="non-scaling-stroke"></path>
+        <path d="M52.6863 52.6863C58.9347 46.4379 69.0653 46.4379 75.3137 52.6863C81.5621 58.9347 81.5621 69.0653 75.3137 75.3137" stroke="#1F2937" fill="none" strokeWidth="1px" strokeLinecap="square" vectorEffect="non-scaling-stroke"></path>
+        <path d="M41.3726 41.3726C53.8694 28.8758 74.1306 28.8758 86.6274 41.3726C99.1242 53.8694 99.1242 74.1306 86.6274 86.6274" stroke="#1F2937" fill="none" strokeWidth="1px" strokeLinecap="square" vectorEffect="non-scaling-stroke"></path>
+      </g>
+    </g>
+  </svg>
+)
+
+const lightIcon = (
+  <svg viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" className="">
+    <rect fill="white" width="64px" height="64px" x="0" y="0"></rect>
+    <g transform="matrix(0.5,0,0,0.5,0,0)">
+      <g transform="matrix(1,0,0,1,0,0)">
+        <circle cx="64" cy="64" r="64" fill="#1F2937" stroke="white" strokeWidth="1px" strokeLinecap="square" vectorEffect="non-scaling-stroke"></circle>
+        <path d="M128 128L0 0" stroke="white" strokeLinecap="square" fill="none" strokeWidth="1.1px" vectorEffect="non-scaling-stroke"></path>
+        <path d="M30.0589 30.0589C48.804 11.3137 79.196 11.3137 97.9411 30.0589C116.686 48.804 116.686 79.196 97.9411 97.9411" stroke="white" fill="none" strokeWidth="1.1px" strokeLinecap="square" vectorEffect="non-scaling-stroke"></path>
+        <path d="M52.6863 52.6863C58.9347 46.4379 69.0653 46.4379 75.3137 52.6863C81.5621 58.9347 81.5621 69.0653 75.3137 75.3137" stroke="white" fill="none" strokeWidth="1.1px" strokeLinecap="square" vectorEffect="non-scaling-stroke"></path>
+        <path d="M41.3726 41.3726C53.8694 28.8758 74.1306 28.8758 86.6274 41.3726C99.1242 53.8694 99.1242 74.1306 86.6274 86.6274" stroke="white" fill="none" strokeWidth="1.1px" strokeLinecap="square" vectorEffect="non-scaling-stroke"></path>
+      </g>
+    </g>
+  </svg>
+)
+
+const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const mobileMenuRef = useClickAway(() => setMobileMenuOpen(false))
+  const [isDark, _] = useDarkMode()
 
   useEffect(() => {
     Router.events.on('routeChangeStart', () => setMobileMenuOpen(false))
@@ -27,17 +59,12 @@ const Header = ({dark}) => {
         <div className="flex flex-row justify-between items-end mx-4 lg:mx-8 -mb-px">
           <Link href="/">
 
-            <h2 className="flex flex-row items-center text-4xl md:text-5xl pb-0.5 hover:pb-0 hover:border-b-2 dark:hover:border-white hover:border-black">
+            <h2 className="flex flex-row items-center text-4xl md:text-5xl pb-0.5 hover:pb-0 hover:border-b-2 dark:hover:border-white hover:border-black font-brand">
               <span className="h-6 w-6 md:h-7 md:w-7 mr-1 md:mr-2">
-                <svg viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                  <g transform="matrix(0.5,0,0,0.5,0,0)">
-                    <g transform="matrix(1,0,0,1,0,0)">
-                      <circle cx="64" cy="64" r="64" fill="currentColor" stroke="" strokeWidth="1px" strokeLinecap="square" vectorEffect="non-scaling-stroke"></circle>
-                    </g>
-                  </g>
-                </svg>
+                {isDark && darkIcon}
+                {!isDark && lightIcon}
               </span>
-              title
+              evac
             </h2>
 
           </Link>

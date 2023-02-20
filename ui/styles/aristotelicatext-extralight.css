@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'aristotelicatext-extralight';
+    src: url('aristotelicatext-extralight-webfont.woff2') format('woff2'),
+         url('aristotelicatext-extralight-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

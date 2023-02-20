@@ -1,3 +1,6 @@
+@import 'montserrat.css';
+@import 'aristotelicatext-extralight.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -107,7 +107,7 @@ export default function Index() {
       console.log(quipDate, quip)
       await addQuip(theFlag, oops, quipDate, quip.memo)
     }
-  }, [notesJson, addNote])
+  }, [notesJson, addNote, addQuip])
 
   return (
     <Layout className="bg-gray-50 text-gray-800 dark:bg-gray-800 dark:text-white transition-colors duration-200">
