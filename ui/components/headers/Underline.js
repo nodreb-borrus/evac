@@ -7,7 +7,7 @@ import DarkModeToggle from 'components/widgets/DarkModeToggle'
 import { useDarkMode } from 'components/util/useDarkMode'
 
 const links = [
-  { href: "/about", title: "About" },
+  // { href: "/about", title: "About" },
 ]
 
 const darkIcon = (
@@ -68,12 +68,12 @@ const Header = () => {
             </h2>
 
           </Link>
-          <a onClick={() => setMobileMenuOpen(true)} className="md:hidden cursor-pointer">
+          <a onClick={() => setMobileMenuOpen(true)} className="hidden cursor-pointer">
             <div className="inline-block w-8 h-8 m-2">
               <svg fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
             </div>
           </a>
-          <ul className="hidden md:flex flex-row items-baseline font-medium text-base lg:text-xl tracking-wide">
+          <ul className="flex flex-row items-baseline font-medium text-base lg:text-xl tracking-wide">
             {links.map(({href, title}) =>
               <Link href={href} key={title}>
 
@@ -83,7 +83,7 @@ const Header = () => {
 
               </Link>
             )}
-            <li className="inline-block -mb-1 ml-4 h-6">
+            <li className="inline-block mb-2 ml-4 h-6">
               <DarkModeToggle />
             </li>
           </ul>

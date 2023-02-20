@@ -36,8 +36,8 @@ export default function SocialOnly() {
           ))}
         </div>
         <div className="mt-8 md:order-1 md:mt-0">
-          <p className="text-center text-xs leading-5 text-gray-500">
-            Project template provided by <a href="https://urbit.me" target="_blank" rel="noreferrer" className="underline">urbit.me</a>
+          <p className="text-center text-sm leading-5 text-gray-500">
+            evac notes migration app by <a href="https://urbit.me" target="_blank" rel="noreferrer" className="underline">urbit.me</a>
           </p>
         </div>
       </div>
